@@ -61,19 +61,37 @@ class KronosBot:
         
         if self.username and self.password:
             try:
-                logging.info("Intentando login automático...")
-                WebDriverWait(self.driver, 10).until(
+                logging.info(f"Intentando login automático para usuario: {self.username}...")
+                
+                # Esperar a que cargue la página
+                WebDriverWait(self.driver, 15).until(
+                    EC.presence_of_element_located((By.TAG_NAME, "body"))
+                )
+                logging.info(f"Página cargada: {self.driver.title}")
+
+                # Intentar encontrar el campo de usuario
+                user_field = WebDriverWait(self.driver, 20).until(
                     EC.presence_of_element_located(self.selectors["login_user_input"])
-                ).send_keys(self.username)
+                )
+                user_field.clear()
+                user_field.send_keys(self.username)
                 
-                self.driver.find_element(*self.selectors["login_pass_input"]).send_keys(self.password)
-                self.driver.find_element(*self.selectors["login_submit_btn"]).click()
+                pass_field = self.driver.find_element(*self.selectors["login_pass_input"])
+                pass_field.clear()
+                pass_field.send_keys(self.password)
                 
-                logging.info("Credenciales enviadas.")
+                submit_btn = self.driver.find_element(*self.selectors["login_submit_btn"])
+                submit_btn.click()
+                
+                logging.info("Credenciales enviadas. Esperando redirección...")
+                time.sleep(5) # Esperar a que procese el login
+                
             except Exception as e:
-                logging.warning(f"Login automático falló o no fue necesario: {e}")
+                logging.warning(f"Login automático falló: {e}")
+                self.driver.save_screenshot("login_error.png")
+                logging.info("Captura de pantalla de error guardada en login_error.png")
         else:
-            logging.info("No hay credenciales. En modo Headless (Docker) esto fallará si la sesión no es persistente.")
+            logging.info("No hay credenciales en .env. El login fallará en modo Headless.")
 
     def stop_timer(self):
         """Espera y hace clic en el botón de detener tiempo."""
@@ -88,7 +106,7 @@ class KronosBot:
             time.sleep(5)
         except Exception as e:
             logging.error(f"❌ ERROR: No se pudo encontrar el botón: {e}")
-            # Guardar captura de pantalla para debug en Docker
+            logging.info(f"Título de la página actual: {self.driver.title}")
             self.driver.save_screenshot("error_screenshot.png")
             raise e
 
