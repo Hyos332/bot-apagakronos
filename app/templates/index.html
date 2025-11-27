@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kronos Automator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>⏳ Kronos Automator</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -15,68 +16,177 @@
         </header>
 
         <main>
+            <!-- Schedule Card -->
             <div class="card schedule-card">
-                <h2>Programación Automática</h2>
+                <h2>Programar Nuevo Horario</h2>
                 <div class="input-group">
                     <label for="timeInput">Hora de Salida:</label>
-                    <input type="time" id="timeInput" value="{{ schedule if schedule else '18:00' }}">
+                    <div class="time-input-wrapper">
+                        <input type="time" id="timeInput" value="18:00">
+                    </div>
                 </div>
-                <button id="saveBtn" class="btn btn-primary">Guardar Horario</button>
-                <p id="statusMsg" class="status-msg"></p>
+                <button id="addBtn" class="btn btn-primary">+ Agregar Horario</button>
+                <div id="statusMsg" class="status-msg"></div>
+
+                <!-- Lista de horarios programados -->
+                <div id="schedulesList" class="schedules-list">
+                    <h3>Horarios Programados</h3>
+                    <div id="schedulesContainer"></div>
+                </div>
             </div>
 
+            <!-- Actions Card -->
             <div class="card actions-card">
                 <h2>Acciones Manuales</h2>
                 <p>¿Sales temprano hoy?</p>
-                <button id="runNowBtn" class="btn btn-danger">🛑 DETENER AHORA</button>
+                <button id="runNowBtn" class="btn btn-danger">🛑 Detener Ahora</button>
             </div>
 
+            <!-- Logs Card -->
             <div class="card logs-card">
                 <h2>Registro de Actividad</h2>
-                <div class="log-console" id="logConsole">
-                    Cargando logs...
-                </div>
-                <button id="refreshLogs" class="btn btn-secondary">Actualizar Logs</button>
+                <div class="log-console" id="logConsole">Cargando logs...</div>
+                <button id="refreshLogs" class="btn btn-secondary">↻ Actualizar Logs</button>
             </div>
         </main>
     </div>
 
     <script>
-        document.getElementById('saveBtn').addEventListener('click', async () => {
-            const time = document.getElementById('timeInput').value;
-            const res = await fetch('/schedule', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({time})
-            });
-            const data = await res.json();
-            const msg = document.getElementById('statusMsg');
-            msg.textContent = data.message;
-            msg.style.color = '#4ade80';
-            setTimeout(() => msg.textContent = '', 3000);
-        });
+        let schedules = [];
 
-        document.getElementById('runNowBtn').addEventListener('click', async () => {
-            if(!confirm("¿Seguro que quieres ejecutar el bot ahora?")) return;
-            const res = await fetch('/run-now', {method: 'POST'});
-            const data = await res.json();
-            alert(data.message);
-            loadLogs();
-        });
-
-        async function loadLogs() {
-            const res = await fetch('/logs');
-            const text = await res.text();
-            const consoleDiv = document.getElementById('logConsole');
-            consoleDiv.textContent = text;
-            consoleDiv.scrollTop = consoleDiv.scrollHeight;
+        // Load schedules
+        async function loadSchedules() {
+            try {
+                const res = await fetch('/schedules');
+                const data = await res.json();
+                schedules = data.schedules || [];
+                renderSchedules();
+            } catch (error) {
+                console.error('Error loading schedules:', error);
+            }
         }
 
+        // Render schedules list
+        function renderSchedules() {
+            const container = document.getElementById('schedulesContainer');
+
+            if (schedules.length === 0) {
+                container.innerHTML = '<p class="no-schedules">No hay horarios programados</p>';
+                return;
+            }
+
+            container.innerHTML = schedules.map(schedule => `
+                <div class="schedule-item">
+                    <div class="schedule-time">
+                        <span class="time-icon">🕐</span>
+                        <span class="time-text">${schedule.time}</span>
+                    </div>
+                    <button class="btn-delete" onclick="deleteSchedule('${schedule.id}')">
+                        🗑️
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // Add schedule
+        document.getElementById('addBtn').addEventListener('click', async () => {
+            const time = document.getElementById('timeInput').value;
+            if (!time) {
+                showStatus('Por favor selecciona una hora', false);
+                return;
+            }
+
+            try {
+                const res = await fetch('/schedule', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ time })
+                });
+
+                if (!res.ok) {
+                    const error = await res.json();
+                    showStatus(error.error || 'Error al agregar', false);
+                    return;
+                }
+
+                const data = await res.json();
+                showStatus(`✓ ${data.message}`, true);
+                await loadSchedules();
+            } catch (error) {
+                showStatus('Error al guardar', false);
+            }
+        });
+
+        // Delete schedule
+        async function deleteSchedule(scheduleId) {
+            if (!confirm('¿Eliminar este horario?')) return;
+
+            try {
+                const res = await fetch(`/schedule/${scheduleId}`, {
+                    method: 'DELETE'
+                });
+                const data = await res.json();
+                showStatus(`✓ ${data.message}`, true);
+                await loadSchedules();
+            } catch (error) {
+                showStatus('Error al eliminar', false);
+            }
+        }
+
+        // Run now
+        document.getElementById('runNowBtn').addEventListener('click', async () => {
+            if (!confirm("¿Seguro que quieres ejecutar el bot ahora?")) return;
+
+            try {
+                const res = await fetch('/run-now', { method: 'POST' });
+                const data = await res.json();
+                showStatus(`✓ ${data.message}`, true);
+                setTimeout(loadLogs, 2000);
+            } catch (error) {
+                showStatus('Error al ejecutar', false);
+            }
+        });
+
+        // Load logs
+        async function loadLogs() {
+            try {
+                const res = await fetch('/logs');
+                const text = await res.text();
+                const consoleDiv = document.getElementById('logConsole');
+                consoleDiv.textContent = text || 'No hay logs disponibles.';
+                consoleDiv.scrollTop = consoleDiv.scrollHeight;
+            } catch (error) {
+                console.error('Error loading logs:', error);
+            }
+        }
+
+        // Refresh logs button
         document.getElementById('refreshLogs').addEventListener('click', loadLogs);
-        
-        // Auto-load logs
+
+        // Show status message
+        function showStatus(message, success) {
+            const msg = document.getElementById('statusMsg');
+            msg.textContent = message;
+            msg.style.background = success
+                ? 'rgba(16, 185, 129, 0.1)'
+                : 'rgba(239, 68, 68, 0.1)';
+            msg.style.borderColor = success
+                ? 'rgba(16, 185, 129, 0.3)'
+                : 'rgba(239, 68, 68, 0.3)';
+            msg.style.color = success ? '#10b981' : '#ef4444';
+
+            setTimeout(() => {
+                msg.textContent = '';
+                msg.style.background = '';
+                msg.style.borderColor = '';
+            }, 4000);
+        }
+
+        // Initialize
+        loadSchedules();
         loadLogs();
         setInterval(loadLogs, 10000);
     </script>
 </body>
+
 </html>
