@@ -11,7 +11,17 @@
 <body>
     <div class="container">
         <header>
-            <h1>⏳ Kronos Automator</h1>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h1>⏳ Kronos Automator</h1>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <span style="color: var(--text-secondary); font-size: 0.875rem;">
+                        👤 {{ username }}
+                    </span>
+                    <a href="/logout" style="color: var(--accent-danger); text-decoration: none; font-size: 0.875rem;">
+                        Cerrar Sesión
+                    </a>
+                </div>
+            </div>
             <p>Control de Automatización de Tiempo</p>
         </header>
 
