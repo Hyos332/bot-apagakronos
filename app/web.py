@@ -45,23 +45,39 @@ def run_bot_job(username, password):
     success, message = bot.run()
     logger.info(f"Resultado de la tarea: {success} - {message}")
 
-def load_schedules():
-    """Carga todos los horarios programados"""
+def load_schedules(username=None):
+    """Carga los horarios programados (opcionalmente filtrados por usuario)"""
     if os.path.exists(SCHEDULE_FILE):
         try:
             with open(SCHEDULE_FILE, 'r') as f:
                 data = json.load(f)
-                schedules = data.get("schedules", [])
-                # NO programar aquí, se programará después del login
-                return schedules
+                all_schedules = data.get("schedules", {})
+                
+                if username:
+                    # Retornar solo los horarios de este usuario
+                    return all_schedules.get(username, [])
+                else:
+                    # Retornar todos (para migración)
+                    return all_schedules
         except Exception as e:
             logger.error(f"Error cargando horarios: {e}")
-    return []
+    return [] if username else {}
 
-def save_schedules(schedules):
-    """Guarda todos los horarios"""
+def save_schedules(username, user_schedules):
+    """Guarda los horarios de un usuario específico"""
+    # Cargar todos los horarios
+    all_schedules = load_schedules()
+    
+    # Si all_schedules es una lista (formato antiguo), convertir a dict
+    if isinstance(all_schedules, list):
+        all_schedules = {}
+    
+    # Actualizar los horarios de este usuario
+    all_schedules[username] = user_schedules
+    
+    # Guardar todo
     with open(SCHEDULE_FILE, 'w') as f:
-        json.dump({"schedules": schedules}, f)
+        json.dump({"schedules": all_schedules}, f)
 
 def schedule_job(time_str, job_id, username, password):
     """Programa un trabajo con credenciales específicas"""
@@ -100,9 +116,9 @@ def login():
     session['username'] = username
     session['password'] = password
     
-    # Cargar y reprogramar horarios con las nuevas credenciales
-    schedules = load_schedules()
-    for schedule in schedules:
+    # Cargar y reprogramar horarios de este usuario
+    user_schedules = load_schedules(username)
+    for schedule in user_schedules:
         schedule_job(schedule["time"], schedule["id"], username, password)
     
     return jsonify({"message": "Login exitoso"})
@@ -118,42 +134,43 @@ def logout():
 @app.route('/')
 @login_required
 def index():
-    schedules = load_schedules()
-    return render_template('index.html', schedules=schedules, username=session.get('username'))
+    user_schedules = load_schedules(session['username'])
+    return render_template('index.html', schedules=user_schedules, username=session.get('username'))
 
 @app.route('/schedules', methods=['GET'])
 @login_required
 def get_schedules():
-    schedules = load_schedules()
-    return jsonify({"schedules": schedules})
+    user_schedules = load_schedules(session['username'])
+    return jsonify({"schedules": user_schedules})
 
 @app.route('/schedule', methods=['POST'])
 @login_required
 def add_schedule():
     data = request.json
     time_str = data.get('time')
+    username = session['username']
     
     if not time_str:
         return jsonify({"error": "Hora inválida"}), 400
     
-    schedules = load_schedules()
+    user_schedules = load_schedules(username)
     
-    # Verificar si ya existe ese horario
-    if any(s['time'] == time_str for s in schedules):
+    # Verificar si ya existe ese horario para este usuario
+    if any(s['time'] == time_str for s in user_schedules):
         return jsonify({"error": "Este horario ya está programado"}), 400
     
-    # Generar ID único
-    schedule_id = f"schedule_{len(schedules)}_{time_str.replace(':', '')}"
+    # Generar ID único con el username
+    schedule_id = f"{username}_schedule_{len(user_schedules)}_{time_str.replace(':', '')}"
     
-    # Agregar a la lista
+    # Agregar a la lista del usuario
     new_schedule = {"id": schedule_id, "time": time_str}
-    schedules.append(new_schedule)
+    user_schedules.append(new_schedule)
     
     # Programar el job con credenciales de la sesión
-    schedule_job(time_str, schedule_id, session['username'], session['password'])
+    schedule_job(time_str, schedule_id, username, session['password'])
     
     # Guardar en archivo
-    save_schedules(schedules)
+    save_schedules(username, user_schedules)
     
     return jsonify({
         "message": f"Horario {time_str} agregado",
@@ -163,10 +180,11 @@ def add_schedule():
 @app.route('/schedule/<schedule_id>', methods=['DELETE'])
 @login_required
 def delete_schedule(schedule_id):
-    schedules = load_schedules()
+    username = session['username']
+    user_schedules = load_schedules(username)
     
-    # Buscar y eliminar de la lista
-    schedules = [s for s in schedules if s['id'] != schedule_id]
+    # Buscar y eliminar de la lista del usuario
+    user_schedules = [s for s in user_schedules if s['id'] != schedule_id]
     
     # Eliminar el job del scheduler
     try:
@@ -175,7 +193,7 @@ def delete_schedule(schedule_id):
         pass
     
     # Guardar cambios
-    save_schedules(schedules)
+    save_schedules(username, user_schedules)
     
     return jsonify({"message": "Horario eliminado"})
 
