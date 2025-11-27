@@ -1644,3 +1644,47 @@ Stacktrace:
 2025-11-27 15:14:25,451 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:25] "GET /schedules HTTP/1.1" 200 -
 2025-11-27 15:14:25,452 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:25] "GET /logs HTTP/1.1" 200 -
 2025-11-27 15:14:35,451 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:35] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:14:45,659 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:45] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:14:55,869 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:55] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:15:06,079 - INFO - 172.18.0.1 - - [27/Nov/2025 15:15:06] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:15:16,316 - INFO - 172.18.0.1 - - [27/Nov/2025 15:15:16] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:15:26,529 - INFO - 172.18.0.1 - - [27/Nov/2025 15:15:26] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:15:36,529 - INFO - 172.18.0.1 - - [27/Nov/2025 15:15:36] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:15:46,529 - INFO - 172.18.0.1 - - [27/Nov/2025 15:15:46] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:15:56,528 - INFO - 172.18.0.1 - - [27/Nov/2025 15:15:56] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:16:06,529 - INFO - 172.18.0.1 - - [27/Nov/2025 15:16:06] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:16:16,529 - INFO - 172.18.0.1 - - [27/Nov/2025 15:16:16] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:16:26,529 - INFO - 172.18.0.1 - - [27/Nov/2025 15:16:26] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:16:36,531 - INFO - 172.18.0.1 - - [27/Nov/2025 15:16:36] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:16:46,771 - INFO - 172.18.0.1 - - [27/Nov/2025 15:16:46] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:16:56,985 - INFO - 172.18.0.1 - - [27/Nov/2025 15:16:56] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:17:07,197 - INFO - 172.18.0.1 - - [27/Nov/2025 15:17:07] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:17:17,407 - INFO - 172.18.0.1 - - [27/Nov/2025 15:17:17] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:17:27,642 - INFO - 172.18.0.1 - - [27/Nov/2025 15:17:27] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:17:37,642 - INFO - 172.18.0.1 - - [27/Nov/2025 15:17:37] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:17:47,643 - INFO - 172.18.0.1 - - [27/Nov/2025 15:17:47] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:17:57,642 - INFO - 172.18.0.1 - - [27/Nov/2025 15:17:57] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:18:07,643 - INFO - 172.18.0.1 - - [27/Nov/2025 15:18:07] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:18:17,644 - INFO - 172.18.0.1 - - [27/Nov/2025 15:18:17] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:18:27,768 - INFO - 172.18.0.1 - - [27/Nov/2025 15:18:27] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:18:33,106 - INFO - Base de datos inicializada correctamente.
+2025-11-27 15:18:33,107 - INFO - Scheduler started
+2025-11-27 15:18:33,108 - INFO - Restaurando trabajos programados desde la base de datos...
+2025-11-27 15:18:33,109 - INFO - Added job "schedule_job.<locals>.<lambda>" to job store "default"
+2025-11-27 15:18:33,109 - INFO - Tarea programada para las 18:00 (ID: luis.hoyos_schedule_0_1800)
+2025-11-27 15:18:33,109 - INFO - Added job "schedule_job.<locals>.<lambda>" to job store "default"
+2025-11-27 15:18:33,109 - INFO - Tarea programada para las 18:00 (ID: luis.hoyoss_schedule_0_1800)
+2025-11-27 15:18:33,109 - INFO - ✅ Se han restaurado 2 trabajos programados.
+2025-11-27 15:18:33,113 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.2:5000
+2025-11-27 15:18:33,113 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-27 15:18:37,877 - INFO - 172.18.0.1 - - [27/Nov/2025 15:18:37] "[32mGET /logs HTTP/1.1[0m" 302 -
+2025-11-27 15:18:37,891 - INFO - 172.18.0.1 - - [27/Nov/2025 15:18:37] "GET /login HTTP/1.1" 200 -
+2025-11-27 15:18:47,909 - INFO - 172.18.0.1 - - [27/Nov/2025 15:18:47] "[32mGET /logs HTTP/1.1[0m" 302 -
+2025-11-27 15:18:47,914 - INFO - 172.18.0.1 - - [27/Nov/2025 15:18:47] "GET /login HTTP/1.1" 200 -
+2025-11-27 15:18:58,122 - INFO - 172.18.0.1 - - [27/Nov/2025 15:18:58] "[32mGET /logs HTTP/1.1[0m" 302 -
+2025-11-27 15:18:58,126 - INFO - 172.18.0.1 - - [27/Nov/2025 15:18:58] "GET /login HTTP/1.1" 200 -
+2025-11-27 15:19:08,334 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:08] "[32mGET /logs HTTP/1.1[0m" 302 -
+2025-11-27 15:19:08,339 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:08] "GET /login HTTP/1.1" 200 -
