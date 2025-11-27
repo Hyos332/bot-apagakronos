@@ -30,10 +30,11 @@ class KronosBot:
         self.password = os.getenv("KRONOS_PASSWORD")
         
         # --- CONFIGURACIÓN DE SELECTORES ---
+        # Selectores específicos para Kronos basados en inspección real
         self.selectors = {
-            "login_user_input": (By.ID, "username"), 
-            "login_pass_input": (By.ID, "password"),
-            "login_submit_btn": (By.XPATH, "//button[@type='submit']"),
+            "login_user_input": (By.NAME, "user"),
+            "login_pass_input": (By.NAME, "password"),
+            "login_submit_btn": (By.XPATH, "//button[@type='submit'] | //button[contains(text(), 'Acceder')]"),
             "stop_button": (By.XPATH, "//button[contains(@class, 'btn-stop') or contains(text(), 'Detener')]") 
         }
 

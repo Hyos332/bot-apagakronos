@@ -458,3 +458,305 @@ Stacktrace:
 2025-11-27 11:21:03,883 - INFO - Job "run_bot_job (trigger: date[2025-11-27 11:20:19 UTC], next run at: 2025-11-27 11:20:19 UTC)" executed successfully
 2025-11-27 11:21:11,660 - INFO - 172.21.0.1 - - [27/Nov/2025 11:21:11] "GET /logs HTTP/1.1" 200 -
 2025-11-27 11:21:21,661 - INFO - 172.21.0.1 - - [27/Nov/2025 11:21:21] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:21:31,769 - INFO - Scheduler started
+2025-11-27 11:21:31,771 - INFO - Added job "run_bot_job" to job store "default"
+2025-11-27 11:21:31,771 - INFO - Tarea programada para las 07:00
+2025-11-27 11:21:31,774 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.21.0.2:5000
+2025-11-27 11:21:31,774 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-27 11:21:33,512 - INFO - 172.21.0.1 - - [27/Nov/2025 11:21:33] "GET / HTTP/1.1" 200 -
+2025-11-27 11:21:33,527 - INFO - 172.21.0.1 - - [27/Nov/2025 11:21:33] "GET /static/style.css HTTP/1.1" 200 -
+2025-11-27 11:21:33,618 - INFO - 172.21.0.1 - - [27/Nov/2025 11:21:33] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:21:43,776 - INFO - 172.21.0.1 - - [27/Nov/2025 11:21:43] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:21:54,099 - INFO - 172.21.0.1 - - [27/Nov/2025 11:21:54] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:22:04,491 - INFO - 172.21.0.1 - - [27/Nov/2025 11:22:04] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:22:14,493 - INFO - 172.21.0.1 - - [27/Nov/2025 11:22:14] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:22:24,492 - INFO - 172.21.0.1 - - [27/Nov/2025 11:22:24] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:22:33,449 - INFO - 172.21.0.1 - - [27/Nov/2025 11:22:33] "GET / HTTP/1.1" 200 -
+2025-11-27 11:22:33,474 - INFO - 172.21.0.1 - - [27/Nov/2025 11:22:33] "GET /static/style.css HTTP/1.1" 200 -
+2025-11-27 11:22:33,717 - INFO - 172.21.0.1 - - [27/Nov/2025 11:22:33] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:22:33,820 - INFO - 172.21.0.1 - - [27/Nov/2025 11:22:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-11-27 11:22:36,733 - INFO - Added job "run_bot_job" to job store "default"
+2025-11-27 11:22:36,734 - INFO - 172.21.0.1 - - [27/Nov/2025 11:22:36] "POST /run-now HTTP/1.1" 200 -
+2025-11-27 11:22:36,735 - INFO - Running job "run_bot_job (trigger: date[2025-11-27 11:22:36 UTC], next run at: 2025-11-27 11:22:36 UTC)" (scheduled at 2025-11-27 11:22:36.733741+00:00)
+2025-11-27 11:22:36,735 - INFO - Removed job 1eae20e9ebbf42f1998affe327b47cad
+2025-11-27 11:22:36,735 - INFO - ⏰ Ejecutando tarea programada...
+2025-11-27 11:22:36,736 - INFO - Configurando navegador...
+2025-11-27 11:22:36,736 - INFO - ====== WebDriver manager ======
+2025-11-27 11:22:36,822 - INFO - Get LATEST chromedriver version for google-chrome
+2025-11-27 11:22:36,923 - INFO - Get LATEST chromedriver version for google-chrome
+2025-11-27 11:22:36,978 - INFO - There is no [linux64] chromedriver "142.0.7444.175" for browser google-chrome "142.0.7444" in cache
+2025-11-27 11:22:36,978 - INFO - Get LATEST chromedriver version for google-chrome
+2025-11-27 11:22:37,161 - INFO - WebDriver version 142.0.7444.175 selected
+2025-11-27 11:22:37,165 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/142.0.7444.175/linux64/chromedriver-linux64.zip
+2025-11-27 11:22:37,166 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/142.0.7444.175/linux64/chromedriver-linux64.zip
+2025-11-27 11:22:37,243 - INFO - Driver downloading response is 200
+2025-11-27 11:22:38,732 - INFO - Get LATEST chromedriver version for google-chrome
+2025-11-27 11:22:38,904 - INFO - Driver has been saved in cache [/root/.wdm/drivers/chromedriver/linux64/142.0.7444.175]
+2025-11-27 11:22:39,086 - INFO - Navegador iniciado correctamente.
+2025-11-27 11:22:39,138 - INFO - Verificando necesidad de login...
+2025-11-27 11:22:39,138 - INFO - Intentando login automático para usuario: luis.hoyos...
+2025-11-27 11:22:39,149 - INFO - Página cargada: kronos.ctdesarrollo-sdr.org
+2025-11-27 11:22:39,709 - INFO - 172.21.0.1 - - [27/Nov/2025 11:22:39] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:22:43,840 - INFO - 172.21.0.1 - - [27/Nov/2025 11:22:43] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:22:53,840 - INFO - 172.21.0.1 - - [27/Nov/2025 11:22:53] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:22:59,470 - WARNING - Login automático falló: Message: 
+Stacktrace:
+#0 0x63bf0e5904ca <unknown>
+#1 0x63bf0dfdee4b <unknown>
+#2 0x63bf0e031814 <unknown>
+#3 0x63bf0e031a51 <unknown>
+#4 0x63bf0e080a44 <unknown>
+#5 0x63bf0e07ddf7 <unknown>
+#6 0x63bf0e023c2a <unknown>
+#7 0x63bf0e024931 <unknown>
+#8 0x63bf0e556cf9 <unknown>
+#9 0x63bf0e559cdc <unknown>
+#10 0x63bf0e53ff79 <unknown>
+#11 0x63bf0e55a8b5 <unknown>
+#12 0x63bf0e5279c3 <unknown>
+#13 0x63bf0e57d228 <unknown>
+#14 0x63bf0e57d403 <unknown>
+#15 0x63bf0e58f463 <unknown>
+#16 0x79e08270bb7b <unknown>
+
+2025-11-27 11:22:59,526 - INFO - Captura de pantalla de error guardada en login_error.png
+2025-11-27 11:22:59,526 - INFO - Buscando botón de detener tiempo...
+2025-11-27 11:23:03,847 - INFO - 172.21.0.1 - - [27/Nov/2025 11:23:03] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:23:13,842 - INFO - 172.21.0.1 - - [27/Nov/2025 11:23:13] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:23:24,258 - INFO - 172.21.0.1 - - [27/Nov/2025 11:23:24] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:23:29,997 - ERROR - ❌ ERROR: No se pudo encontrar el botón: Message: 
+Stacktrace:
+#0 0x63bf0e5904ca <unknown>
+#1 0x63bf0dfdee4b <unknown>
+#2 0x63bf0e031814 <unknown>
+#3 0x63bf0e031a51 <unknown>
+#4 0x63bf0e080a44 <unknown>
+#5 0x63bf0e07ddf7 <unknown>
+#6 0x63bf0e023c2a <unknown>
+#7 0x63bf0e024931 <unknown>
+#8 0x63bf0e556cf9 <unknown>
+#9 0x63bf0e559cdc <unknown>
+#10 0x63bf0e53ff79 <unknown>
+#11 0x63bf0e55a8b5 <unknown>
+#12 0x63bf0e5279c3 <unknown>
+#13 0x63bf0e57d228 <unknown>
+#14 0x63bf0e57d403 <unknown>
+#15 0x63bf0e58f463 <unknown>
+#16 0x79e08270bb7b <unknown>
+
+2025-11-27 11:23:29,999 - INFO - Título de la página actual: kronos.ctdesarrollo-sdr.org
+2025-11-27 11:23:30,106 - INFO - Resultado de la tarea: False - Message: 
+Stacktrace:
+#0 0x63bf0e5904ca <unknown>
+#1 0x63bf0dfdee4b <unknown>
+#2 0x63bf0e031814 <unknown>
+#3 0x63bf0e031a51 <unknown>
+#4 0x63bf0e080a44 <unknown>
+#5 0x63bf0e07ddf7 <unknown>
+#6 0x63bf0e023c2a <unknown>
+#7 0x63bf0e024931 <unknown>
+#8 0x63bf0e556cf9 <unknown>
+#9 0x63bf0e559cdc <unknown>
+#10 0x63bf0e53ff79 <unknown>
+#11 0x63bf0e55a8b5 <unknown>
+#12 0x63bf0e5279c3 <unknown>
+#13 0x63bf0e57d228 <unknown>
+#14 0x63bf0e57d403 <unknown>
+#15 0x63bf0e58f463 <unknown>
+#16 0x79e08270bb7b <unknown>
+
+2025-11-27 11:23:30,106 - INFO - Job "run_bot_job (trigger: date[2025-11-27 11:22:36 UTC], next run at: 2025-11-27 11:22:36 UTC)" executed successfully
+2025-11-27 11:23:34,491 - INFO - 172.21.0.1 - - [27/Nov/2025 11:23:34] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:23:44,697 - INFO - 172.21.0.1 - - [27/Nov/2025 11:23:44] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:23:54,699 - INFO - 172.21.0.1 - - [27/Nov/2025 11:23:54] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:24:04,817 - INFO - 172.21.0.1 - - [27/Nov/2025 11:24:04] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:24:15,082 - INFO - 172.21.0.1 - - [27/Nov/2025 11:24:15] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:24:25,032 - INFO - 172.21.0.1 - - [27/Nov/2025 11:24:25] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:24:35,029 - INFO - 172.21.0.1 - - [27/Nov/2025 11:24:35] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:24:45,076 - INFO - 172.21.0.1 - - [27/Nov/2025 11:24:45] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:24:55,078 - INFO - 172.21.0.1 - - [27/Nov/2025 11:24:55] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:25:05,195 - INFO - 172.21.0.1 - - [27/Nov/2025 11:25:05] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:25:15,204 - INFO - 172.21.0.1 - - [27/Nov/2025 11:25:15] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:25:25,203 - INFO - 172.21.0.1 - - [27/Nov/2025 11:25:25] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:25:35,227 - INFO - 172.21.0.1 - - [27/Nov/2025 11:25:35] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:25:45,434 - INFO - 172.21.0.1 - - [27/Nov/2025 11:25:45] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:25:55,649 - INFO - 172.21.0.1 - - [27/Nov/2025 11:25:55] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:26:05,867 - INFO - 172.21.0.1 - - [27/Nov/2025 11:26:05] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:26:16,050 - INFO - 172.21.0.1 - - [27/Nov/2025 11:26:16] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:26:26,291 - INFO - 172.21.0.1 - - [27/Nov/2025 11:26:26] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:26:36,504 - INFO - 172.21.0.1 - - [27/Nov/2025 11:26:36] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:26:46,717 - INFO - 172.21.0.1 - - [27/Nov/2025 11:26:46] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:26:56,716 - INFO - 172.21.0.1 - - [27/Nov/2025 11:26:56] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:27:06,717 - INFO - 172.21.0.1 - - [27/Nov/2025 11:27:06] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:27:16,722 - INFO - 172.21.0.1 - - [27/Nov/2025 11:27:16] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:27:19,237 - INFO - Scheduler started
+2025-11-27 11:27:19,240 - INFO - Added job "run_bot_job" to job store "default"
+2025-11-27 11:27:19,240 - INFO - Tarea programada para las 07:00
+2025-11-27 11:27:19,242 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.21.0.2:5000
+2025-11-27 11:27:19,242 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-27 11:27:26,738 - INFO - 172.21.0.1 - - [27/Nov/2025 11:27:26] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:27:36,946 - INFO - 172.21.0.1 - - [27/Nov/2025 11:27:36] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:27:47,161 - INFO - 172.21.0.1 - - [27/Nov/2025 11:27:47] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:27:57,158 - INFO - 172.21.0.1 - - [27/Nov/2025 11:27:57] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:28:07,275 - INFO - 172.21.0.1 - - [27/Nov/2025 11:28:07] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:28:17,275 - INFO - 172.21.0.1 - - [27/Nov/2025 11:28:17] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:28:27,275 - INFO - 172.21.0.1 - - [27/Nov/2025 11:28:27] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:28:37,275 - INFO - 172.21.0.1 - - [27/Nov/2025 11:28:37] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:28:47,275 - INFO - 172.21.0.1 - - [27/Nov/2025 11:28:47] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:28:57,279 - INFO - 172.21.0.1 - - [27/Nov/2025 11:28:57] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:29:07,327 - INFO - 172.21.0.1 - - [27/Nov/2025 11:29:07] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:29:17,539 - INFO - 172.21.0.1 - - [27/Nov/2025 11:29:17] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:29:27,718 - INFO - 172.21.0.1 - - [27/Nov/2025 11:29:27] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:29:37,961 - INFO - 172.21.0.1 - - [27/Nov/2025 11:29:37] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:29:40,919 - INFO - Scheduler started
+2025-11-27 11:29:40,922 - INFO - Added job "run_bot_job" to job store "default"
+2025-11-27 11:29:40,922 - INFO - Tarea programada para las 07:00
+2025-11-27 11:29:40,924 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.21.0.2:5000
+2025-11-27 11:29:40,924 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-27 11:29:48,174 - INFO - 172.21.0.1 - - [27/Nov/2025 11:29:48] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:29:57,903 - INFO - 172.21.0.1 - - [27/Nov/2025 11:29:57] "GET / HTTP/1.1" 200 -
+2025-11-27 11:29:57,906 - INFO - 172.21.0.1 - - [27/Nov/2025 11:29:57] "GET / HTTP/1.1" 200 -
+2025-11-27 11:29:58,028 - INFO - 172.21.0.1 - - [27/Nov/2025 11:29:58] "GET /static/style.css HTTP/1.1" 200 -
+2025-11-27 11:29:58,033 - INFO - 172.21.0.1 - - [27/Nov/2025 11:29:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-27 11:29:58,173 - INFO - 172.21.0.1 - - [27/Nov/2025 11:29:58] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:29:58,175 - INFO - 172.21.0.1 - - [27/Nov/2025 11:29:58] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:29:58,176 - INFO - 172.21.0.1 - - [27/Nov/2025 11:29:58] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:29:58,258 - INFO - 172.21.0.1 - - [27/Nov/2025 11:29:58] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-11-27 11:30:01,505 - INFO - Added job "run_bot_job" to job store "default"
+2025-11-27 11:30:01,506 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:01] "POST /run-now HTTP/1.1" 200 -
+2025-11-27 11:30:01,506 - INFO - Running job "run_bot_job (trigger: date[2025-11-27 11:30:01 UTC], next run at: 2025-11-27 11:30:01 UTC)" (scheduled at 2025-11-27 11:30:01.505532+00:00)
+2025-11-27 11:30:01,507 - INFO - Removed job 28f07cbf34c644a0849c629dcdc33f94
+2025-11-27 11:30:01,507 - INFO - ⏰ Ejecutando tarea programada...
+2025-11-27 11:30:01,508 - INFO - Configurando navegador...
+2025-11-27 11:30:01,508 - INFO - ====== WebDriver manager ======
+2025-11-27 11:30:01,603 - INFO - Get LATEST chromedriver version for google-chrome
+2025-11-27 11:30:01,717 - INFO - Get LATEST chromedriver version for google-chrome
+2025-11-27 11:30:01,793 - INFO - There is no [linux64] chromedriver "142.0.7444.175" for browser google-chrome "142.0.7444" in cache
+2025-11-27 11:30:01,793 - INFO - Get LATEST chromedriver version for google-chrome
+2025-11-27 11:30:02,004 - INFO - WebDriver version 142.0.7444.175 selected
+2025-11-27 11:30:02,008 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/142.0.7444.175/linux64/chromedriver-linux64.zip
+2025-11-27 11:30:02,009 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/142.0.7444.175/linux64/chromedriver-linux64.zip
+2025-11-27 11:30:02,103 - INFO - Driver downloading response is 200
+2025-11-27 11:30:02,425 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:02] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:30:03,833 - INFO - Get LATEST chromedriver version for google-chrome
+2025-11-27 11:30:03,977 - INFO - Driver has been saved in cache [/root/.wdm/drivers/chromedriver/linux64/142.0.7444.175]
+2025-11-27 11:30:04,254 - INFO - Navegador iniciado correctamente.
+2025-11-27 11:30:04,553 - INFO - Verificando necesidad de login...
+2025-11-27 11:30:04,553 - INFO - Intentando login automático para usuario: luis.hoyos...
+2025-11-27 11:30:04,592 - INFO - Página cargada: Kronos
+2025-11-27 11:30:04,777 - INFO - Credenciales enviadas. Esperando redirección...
+2025-11-27 11:30:08,176 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:08] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:30:08,176 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:08] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:30:08,772 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:08] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:30:09,782 - INFO - Buscando botón de detener tiempo...
+2025-11-27 11:30:09,813 - INFO - Botón encontrado: Detener
+2025-11-27 11:30:09,845 - INFO - ✅ ¡ÉXITO! Se ha hecho clic en el botón de detener.
+2025-11-27 11:30:14,909 - INFO - Resultado de la tarea: True - Tarea completada con éxito
+2025-11-27 11:30:14,909 - INFO - Job "run_bot_job (trigger: date[2025-11-27 11:30:01 UTC], next run at: 2025-11-27 11:30:01 UTC)" executed successfully
+2025-11-27 11:30:18,174 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:18] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:30:18,175 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:18] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:30:18,772 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:18] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:30:28,175 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:28] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:30:28,175 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:28] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:30:28,772 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:28] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:30:38,175 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:38] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:30:38,175 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:38] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:30:38,772 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:38] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:30:40,091 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:40] "GET / HTTP/1.1" 200 -
+2025-11-27 11:30:40,103 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-27 11:30:40,107 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:40] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:30:48,174 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:48] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:30:48,771 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:48] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:30:50,108 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:50] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:30:58,174 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:58] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:30:58,772 - INFO - 172.21.0.1 - - [27/Nov/2025 11:30:58] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:31:00,298 - INFO - Added job "run_bot_job" to job store "default"
+2025-11-27 11:31:00,299 - INFO - 172.21.0.1 - - [27/Nov/2025 11:31:00] "POST /run-now HTTP/1.1" 200 -
+2025-11-27 11:31:00,300 - INFO - Removed job 4e528615cb1748048305a7d0add46d2d
+2025-11-27 11:31:00,300 - INFO - Running job "run_bot_job (trigger: date[2025-11-27 11:31:00 UTC], next run at: 2025-11-27 11:31:00 UTC)" (scheduled at 2025-11-27 11:31:00.298441+00:00)
+2025-11-27 11:31:00,301 - INFO - ⏰ Ejecutando tarea programada...
+2025-11-27 11:31:00,301 - INFO - 172.21.0.1 - - [27/Nov/2025 11:31:00] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:31:00,302 - INFO - Configurando navegador...
+2025-11-27 11:31:00,302 - INFO - ====== WebDriver manager ======
+2025-11-27 11:31:00,398 - INFO - Get LATEST chromedriver version for google-chrome
+2025-11-27 11:31:00,451 - INFO - Get LATEST chromedriver version for google-chrome
+2025-11-27 11:31:00,534 - INFO - Driver [/root/.wdm/drivers/chromedriver/linux64/142.0.7444.175/chromedriver-linux64/chromedriver] found in cache
+2025-11-27 11:31:00,710 - INFO - Navegador iniciado correctamente.
+2025-11-27 11:31:00,985 - INFO - Verificando necesidad de login...
+2025-11-27 11:31:00,985 - INFO - Intentando login automático para usuario: luis.hoyos...
+2025-11-27 11:31:01,023 - INFO - Página cargada: Kronos
+2025-11-27 11:31:01,176 - INFO - 172.21.0.1 - - [27/Nov/2025 11:31:01] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:31:01,202 - INFO - Credenciales enviadas. Esperando redirección...
+2025-11-27 11:31:06,207 - INFO - Buscando botón de detener tiempo...
+2025-11-27 11:31:06,235 - INFO - Botón encontrado: Detener
+2025-11-27 11:31:06,267 - INFO - ✅ ¡ÉXITO! Se ha hecho clic en el botón de detener.
+2025-11-27 11:31:08,177 - INFO - 172.21.0.1 - - [27/Nov/2025 11:31:08] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:31:08,772 - INFO - 172.21.0.1 - - [27/Nov/2025 11:31:08] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:31:10,108 - INFO - 172.21.0.1 - - [27/Nov/2025 11:31:10] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:31:11,330 - INFO - Resultado de la tarea: True - Tarea completada con éxito
+2025-11-27 11:31:11,330 - INFO - Job "run_bot_job (trigger: date[2025-11-27 11:31:00 UTC], next run at: 2025-11-27 11:31:00 UTC)" executed successfully
+2025-11-27 11:31:18,175 - INFO - 172.21.0.1 - - [27/Nov/2025 11:31:18] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:31:18,772 - INFO - 172.21.0.1 - - [27/Nov/2025 11:31:18] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:31:20,108 - INFO - 172.21.0.1 - - [27/Nov/2025 11:31:20] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:31:28,175 - INFO - 172.21.0.1 - - [27/Nov/2025 11:31:28] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:31:28,772 - INFO - 172.21.0.1 - - [27/Nov/2025 11:31:28] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:31:30,108 - INFO - 172.21.0.1 - - [27/Nov/2025 11:31:30] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:31:38,175 - INFO - 172.21.0.1 - - [27/Nov/2025 11:31:38] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:31:38,772 - INFO - 172.21.0.1 - - [27/Nov/2025 11:31:38] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:31:40,107 - INFO - 172.21.0.1 - - [27/Nov/2025 11:31:40] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:31:48,176 - INFO - 172.21.0.1 - - [27/Nov/2025 11:31:48] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:31:48,772 - INFO - 172.21.0.1 - - [27/Nov/2025 11:31:48] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:31:50,108 - INFO - 172.21.0.1 - - [27/Nov/2025 11:31:50] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:31:58,176 - INFO - 172.21.0.1 - - [27/Nov/2025 11:31:58] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:31:58,772 - INFO - 172.21.0.1 - - [27/Nov/2025 11:31:58] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:00,107 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:00] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:08,176 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:08] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:08,772 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:08] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:10,107 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:10] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:18,176 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:18] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:18,771 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:18] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:20,108 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:20] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:27,782 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:27] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:28,176 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:28] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:28,406 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:28] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:28,558 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:28] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:28,702 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:28] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:28,776 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:28] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:28,855 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:28] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:28,974 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:28] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:29,110 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:29] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:30,107 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:30] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:38,176 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:38] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:38,772 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:38] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:39,006 - INFO - Added job "run_bot_job" to job store "default"
+2025-11-27 11:32:39,006 - INFO - Tarea programada para las 12:33
+2025-11-27 11:32:39,006 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:39] "POST /schedule HTTP/1.1" 200 -
+2025-11-27 11:32:40,107 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:40] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:48,177 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:48] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:48,772 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:48] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:50,107 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:50] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:58,177 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:58] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:32:58,772 - INFO - 172.21.0.1 - - [27/Nov/2025 11:32:58] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:33:00,107 - INFO - 172.21.0.1 - - [27/Nov/2025 11:33:00] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:33:08,463 - INFO - 172.21.0.1 - - [27/Nov/2025 11:33:08] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:33:08,772 - INFO - 172.21.0.1 - - [27/Nov/2025 11:33:08] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:33:10,108 - INFO - 172.21.0.1 - - [27/Nov/2025 11:33:10] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:33:18,772 - INFO - 172.21.0.1 - - [27/Nov/2025 11:33:18] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:33:20,108 - INFO - 172.21.0.1 - - [27/Nov/2025 11:33:20] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:33:28,772 - INFO - 172.21.0.1 - - [27/Nov/2025 11:33:28] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:33:30,108 - INFO - 172.21.0.1 - - [27/Nov/2025 11:33:30] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:33:38,772 - INFO - 172.21.0.1 - - [27/Nov/2025 11:33:38] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:33:40,108 - INFO - 172.21.0.1 - - [27/Nov/2025 11:33:40] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:33:48,772 - INFO - 172.21.0.1 - - [27/Nov/2025 11:33:48] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:33:50,108 - INFO - 172.21.0.1 - - [27/Nov/2025 11:33:50] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:33:58,771 - INFO - 172.21.0.1 - - [27/Nov/2025 11:33:58] "GET /logs HTTP/1.1" 200 -
+2025-11-27 11:34:00,108 - INFO - 172.21.0.1 - - [27/Nov/2025 11:34:00] "GET /logs HTTP/1.1" 200 -
