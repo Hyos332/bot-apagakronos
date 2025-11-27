@@ -13,5 +13,5 @@ services:
       - .env
     volumes:
       - ./bot.log:/app/bot.log
-      - ./schedule.json:/app/schedule.json
+      - ./kronos.db:/app/kronos.db
     shm_size: '2gb' 

@@ -1,6 +1,7 @@
 import os
 import time
 import logging
+from logging.handlers import RotatingFileHandler
 from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -8,14 +9,16 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
 from webdriver_manager.chrome import ChromeDriverManager
 
-# Configuración de Logging
+# Configuración de Logging con Rotación
+# Evita que el archivo crezca infinitamente (máx 1MB, guarda 3 copias)
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler("bot.log"),
+        RotatingFileHandler("bot.log", maxBytes=1_000_000, backupCount=3),
         logging.StreamHandler()
     ]
 )
@@ -30,12 +33,13 @@ class KronosBot:
         self.password = os.getenv("KRONOS_PASSWORD")
         
         # --- CONFIGURACIÓN DE SELECTORES ---
-        # Selectores específicos para Kronos basados en inspección real
         self.selectors = {
             "login_user_input": (By.NAME, "user"),
             "login_pass_input": (By.NAME, "password"),
             "login_submit_btn": (By.XPATH, "//button[@type='submit'] | //button[contains(text(), 'Acceder')]"),
-            "stop_button": (By.XPATH, "//button[contains(@class, 'btn-stop') or contains(text(), 'Detener')]") 
+            "stop_button": (By.XPATH, "//button[contains(@class, 'btn-stop') or contains(text(), 'Detener')]"),
+            # Asumimos que si no está el botón de stop, podría estar el de start o simplemente no estar el de stop
+            "start_button": (By.XPATH, "//button[contains(@class, 'btn-start') or contains(text(), 'Iniciar')]")
         }
 
         self.driver = None
@@ -70,17 +74,17 @@ class KronosBot:
                     WebDriverWait(self.driver, 15).until(
                         EC.presence_of_element_located((By.TAG_NAME, "body"))
                     )
-                    logging.info(f"Página cargada: {self.driver.title}")
                     
-                    # Esperar y encontrar el campo de usuario con reintentos
+                    # Verificar si ya estamos logueados (buscando algo que solo sale dentro)
+                    # Por simplicidad, intentamos loguearnos siempre.
+                    
                     user_field = WebDriverWait(self.driver, 20).until(
                         EC.element_to_be_clickable(self.selectors["login_user_input"])
                     )
-                    time.sleep(0.5)  # Pequeña pausa para estabilidad
+                    time.sleep(0.5)
                     user_field.clear()
                     user_field.send_keys(self.username)
                     
-                    # Esperar y encontrar el campo de contraseña
                     pass_field = WebDriverWait(self.driver, 10).until(
                         EC.element_to_be_clickable(self.selectors["login_pass_input"])
                     )
@@ -88,7 +92,6 @@ class KronosBot:
                     pass_field.clear()
                     pass_field.send_keys(self.password)
                     
-                    # Esperar y hacer clic en el botón de submit
                     submit_btn = WebDriverWait(self.driver, 10).until(
                         EC.element_to_be_clickable(self.selectors["login_submit_btn"])
                     )
@@ -96,38 +99,68 @@ class KronosBot:
                     submit_btn.click()
                     
                     logging.info("Credenciales enviadas. Esperando redirección...")
-                    time.sleep(5)  # Esperar a que procese el login
+                    time.sleep(5)
                     
-                    # Si llegamos aquí, el login fue exitoso
                     logging.info("✅ Login completado exitosamente")
                     return
                     
                 except Exception as e:
                     logging.warning(f"Intento {attempt + 1} falló: {e}")
                     if attempt < max_retries - 1:
-                        logging.info("Reintentando...")
                         time.sleep(2)
                     else:
                         logging.error("❌ Todos los intentos de login fallaron")
                         self.driver.save_screenshot("login_error.png")
-                        logging.info("Captura de pantalla de error guardada en login_error.png")
+                        raise e
         else:
             logging.info("No hay credenciales. El login fallará en modo Headless.")
 
     def stop_timer(self):
-        """Espera y hace clic en el botón de detener tiempo."""
+        """Espera y hace clic en el botón de detener tiempo, con verificación."""
         try:
             logging.info("Buscando botón de detener tiempo...")
-            button = WebDriverWait(self.driver, 30).until(
-                EC.element_to_be_clickable(self.selectors["stop_button"])
-            )
+            
+            # 1. Verificar si el botón de detener existe
+            try:
+                button = WebDriverWait(self.driver, 10).until(
+                    EC.element_to_be_clickable(self.selectors["stop_button"])
+                )
+            except TimeoutException:
+                logging.info("⚠️ No se encontró el botón 'Detener'. Verificando si ya está detenido...")
+                # Si no encontramos el botón de stop, quizás ya está parado.
+                # Podríamos buscar el botón de start para confirmar.
+                try:
+                    WebDriverWait(self.driver, 5).until(
+                        EC.presence_of_element_located(self.selectors["start_button"])
+                    )
+                    logging.info("✅ El cronómetro YA estaba detenido (se encontró botón Iniciar).")
+                    return True
+                except:
+                    logging.warning("No se encontró botón Detener ni Iniciar. Posible error de carga o selector.")
+                    # Si no vemos ninguno, asumimos error, pero no lanzamos excepción crítica todavía
+                    # para permitir ver el screenshot.
+                    raise Exception("No se encontraron controles de tiempo.")
+
             logging.info(f"Botón encontrado: {button.text}")
             button.click()
-            logging.info("✅ ¡ÉXITO! Se ha hecho clic en el botón de detener.")
-            time.sleep(5)
+            
+            # 2. VERIFICACIÓN POST-CLICK
+            logging.info("Verificando que se detuvo correctamente...")
+            time.sleep(3) # Esperar reacción de UI
+            
+            # El botón de stop debería haber desaparecido o cambiado
+            try:
+                WebDriverWait(self.driver, 10).until(
+                    EC.invisibility_of_element_located(self.selectors["stop_button"])
+                )
+                logging.info("✅ ¡ÉXITO CONFIRMADO! El botón de detener ha desaparecido.")
+            except TimeoutException:
+                logging.error("❌ ALERTA: El botón de detener sigue visible después del clic.")
+                self.driver.save_screenshot("failed_stop.png")
+                raise Exception("El cronómetro no parece haberse detenido.")
+
         except Exception as e:
-            logging.error(f"❌ ERROR: No se pudo encontrar el botón: {e}")
-            logging.info(f"Título de la página actual: {self.driver.title}")
+            logging.error(f"❌ ERROR en stop_timer: {e}")
             self.driver.save_screenshot("error_screenshot.png")
             raise e
 
