@@ -57,42 +57,62 @@ class KronosBot:
         logging.info("Navegador iniciado correctamente.")
 
     def login(self):
-        """Maneja el inicio de sesión."""
+        """Maneja el inicio de sesión con reintentos."""
         logging.info("Verificando necesidad de login...")
         
         if self.username and self.password:
-            try:
-                logging.info(f"Intentando login automático para usuario: {self.username}...")
-                
-                # Esperar a que cargue la página
-                WebDriverWait(self.driver, 15).until(
-                    EC.presence_of_element_located((By.TAG_NAME, "body"))
-                )
-                logging.info(f"Página cargada: {self.driver.title}")
-
-                # Intentar encontrar el campo de usuario
-                user_field = WebDriverWait(self.driver, 20).until(
-                    EC.presence_of_element_located(self.selectors["login_user_input"])
-                )
-                user_field.clear()
-                user_field.send_keys(self.username)
-                
-                pass_field = self.driver.find_element(*self.selectors["login_pass_input"])
-                pass_field.clear()
-                pass_field.send_keys(self.password)
-                
-                submit_btn = self.driver.find_element(*self.selectors["login_submit_btn"])
-                submit_btn.click()
-                
-                logging.info("Credenciales enviadas. Esperando redirección...")
-                time.sleep(5) # Esperar a que procese el login
-                
-            except Exception as e:
-                logging.warning(f"Login automático falló: {e}")
-                self.driver.save_screenshot("login_error.png")
-                logging.info("Captura de pantalla de error guardada en login_error.png")
+            max_retries = 3
+            for attempt in range(max_retries):
+                try:
+                    logging.info(f"Intento {attempt + 1}/{max_retries} - Login automático para usuario: {self.username}...")
+                    
+                    # Esperar a que cargue la página
+                    WebDriverWait(self.driver, 15).until(
+                        EC.presence_of_element_located((By.TAG_NAME, "body"))
+                    )
+                    logging.info(f"Página cargada: {self.driver.title}")
+                    
+                    # Esperar y encontrar el campo de usuario con reintentos
+                    user_field = WebDriverWait(self.driver, 20).until(
+                        EC.element_to_be_clickable(self.selectors["login_user_input"])
+                    )
+                    time.sleep(0.5)  # Pequeña pausa para estabilidad
+                    user_field.clear()
+                    user_field.send_keys(self.username)
+                    
+                    # Esperar y encontrar el campo de contraseña
+                    pass_field = WebDriverWait(self.driver, 10).until(
+                        EC.element_to_be_clickable(self.selectors["login_pass_input"])
+                    )
+                    time.sleep(0.5)
+                    pass_field.clear()
+                    pass_field.send_keys(self.password)
+                    
+                    # Esperar y hacer clic en el botón de submit
+                    submit_btn = WebDriverWait(self.driver, 10).until(
+                        EC.element_to_be_clickable(self.selectors["login_submit_btn"])
+                    )
+                    time.sleep(0.5)
+                    submit_btn.click()
+                    
+                    logging.info("Credenciales enviadas. Esperando redirección...")
+                    time.sleep(5)  # Esperar a que procese el login
+                    
+                    # Si llegamos aquí, el login fue exitoso
+                    logging.info("✅ Login completado exitosamente")
+                    return
+                    
+                except Exception as e:
+                    logging.warning(f"Intento {attempt + 1} falló: {e}")
+                    if attempt < max_retries - 1:
+                        logging.info("Reintentando...")
+                        time.sleep(2)
+                    else:
+                        logging.error("❌ Todos los intentos de login fallaron")
+                        self.driver.save_screenshot("login_error.png")
+                        logging.info("Captura de pantalla de error guardada en login_error.png")
         else:
-            logging.info("No hay credenciales en .env. El login fallará en modo Headless.")
+            logging.info("No hay credenciales. El login fallará en modo Headless.")
 
     def stop_timer(self):
         """Espera y hace clic en el botón de detener tiempo."""
