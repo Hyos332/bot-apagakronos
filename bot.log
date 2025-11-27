@@ -1571,3 +1571,76 @@ Stacktrace:
 2025-11-27 15:06:16,230 - INFO - 172.18.0.1 - - [27/Nov/2025 15:06:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-11-27 15:06:16,396 - INFO - 172.18.0.1 - - [27/Nov/2025 15:06:16] "GET /login HTTP/1.1" 200 -
 2025-11-27 15:06:16,414 - INFO - 172.18.0.1 - - [27/Nov/2025 15:06:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-27 15:09:07,971 - INFO - 172.18.0.1 - - [27/Nov/2025 15:09:07] "GET /login HTTP/1.1" 200 -
+2025-11-27 15:09:07,996 - INFO - 172.18.0.1 - - [27/Nov/2025 15:09:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-27 15:09:08,690 - INFO - 172.18.0.1 - - [27/Nov/2025 15:09:08] "GET /login HTTP/1.1" 200 -
+2025-11-27 15:09:08,708 - INFO - 172.18.0.1 - - [27/Nov/2025 15:09:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-27 15:09:08,831 - INFO - 172.18.0.1 - - [27/Nov/2025 15:09:08] "GET /login HTTP/1.1" 200 -
+2025-11-27 15:09:08,848 - INFO - 172.18.0.1 - - [27/Nov/2025 15:09:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-27 15:10:20,087 - INFO - Base de datos inicializada correctamente.
+2025-11-27 15:10:20,089 - INFO - Scheduler started
+2025-11-27 15:10:20,090 - INFO - Restaurando trabajos programados desde la base de datos...
+2025-11-27 15:10:20,091 - INFO - Added job "schedule_job.<locals>.<lambda>" to job store "default"
+2025-11-27 15:10:20,091 - INFO - Tarea programada para las 18:00 (ID: luis.hoyoss_schedule_0_1800)
+2025-11-27 15:10:20,091 - INFO - ✅ Se han restaurado 1 trabajos programados.
+2025-11-27 15:10:20,095 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.2:5000
+2025-11-27 15:10:20,095 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-27 15:12:18,806 - INFO - Removed job luis.hoyoss_schedule_0_1800
+2025-11-27 15:12:18,806 - INFO - Added job "schedule_job.<locals>.<lambda>" to job store "default"
+2025-11-27 15:12:18,806 - INFO - Tarea programada para las 18:00 (ID: luis.hoyoss_schedule_0_1800)
+2025-11-27 15:12:18,815 - INFO - 172.18.0.1 - - [27/Nov/2025 15:12:18] "POST /login HTTP/1.1" 200 -
+2025-11-27 15:12:18,830 - INFO - 172.18.0.1 - - [27/Nov/2025 15:12:18] "GET / HTTP/1.1" 200 -
+2025-11-27 15:12:18,853 - INFO - 172.18.0.1 - - [27/Nov/2025 15:12:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-27 15:12:18,867 - INFO - 172.18.0.1 - - [27/Nov/2025 15:12:18] "GET /schedules HTTP/1.1" 200 -
+2025-11-27 15:12:18,869 - INFO - 172.18.0.1 - - [27/Nov/2025 15:12:18] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:12:23,022 - INFO - Removed job luis.hoyoss_schedule_0_1800
+2025-11-27 15:12:23,023 - INFO - 172.18.0.1 - - [27/Nov/2025 15:12:23] "DELETE /schedule/luis.hoyoss_schedule_0_1800 HTTP/1.1" 200 -
+2025-11-27 15:12:23,029 - INFO - 172.18.0.1 - - [27/Nov/2025 15:12:23] "GET /schedules HTTP/1.1" 200 -
+2025-11-27 15:12:28,884 - INFO - 172.18.0.1 - - [27/Nov/2025 15:12:28] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:12:38,885 - INFO - 172.18.0.1 - - [27/Nov/2025 15:12:38] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:12:48,910 - INFO - 172.18.0.1 - - [27/Nov/2025 15:12:48] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:12:58,911 - INFO - 172.18.0.1 - - [27/Nov/2025 15:12:58] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:13:08,911 - INFO - 172.18.0.1 - - [27/Nov/2025 15:13:08] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:13:18,915 - INFO - 172.18.0.1 - - [27/Nov/2025 15:13:18] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:13:28,912 - INFO - 172.18.0.1 - - [27/Nov/2025 15:13:28] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:13:38,799 - INFO - 172.18.0.1 - - [27/Nov/2025 15:13:38] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-27 15:13:38,805 - INFO - 172.18.0.1 - - [27/Nov/2025 15:13:38] "GET /login HTTP/1.1" 200 -
+2025-11-27 15:13:38,834 - INFO - 172.18.0.1 - - [27/Nov/2025 15:13:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-27 15:13:44,956 - INFO - 172.18.0.1 - - [27/Nov/2025 15:13:44] "POST /login HTTP/1.1" 200 -
+2025-11-27 15:13:44,981 - INFO - 172.18.0.1 - - [27/Nov/2025 15:13:44] "GET / HTTP/1.1" 200 -
+2025-11-27 15:13:45,001 - INFO - 172.18.0.1 - - [27/Nov/2025 15:13:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-27 15:13:45,015 - INFO - 172.18.0.1 - - [27/Nov/2025 15:13:45] "GET /schedules HTTP/1.1" 200 -
+2025-11-27 15:13:45,017 - INFO - 172.18.0.1 - - [27/Nov/2025 15:13:45] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:13:55,017 - INFO - 172.18.0.1 - - [27/Nov/2025 15:13:55] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:14:05,017 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:05] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:14:07,441 - INFO - Added job "schedule_job.<locals>.<lambda>" to job store "default"
+2025-11-27 15:14:07,441 - INFO - Tarea programada para las 18:00 (ID: luis.hoyos_schedule_0_1800)
+2025-11-27 15:14:07,441 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:07] "POST /schedule HTTP/1.1" 200 -
+2025-11-27 15:14:07,447 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:07] "GET /schedules HTTP/1.1" 200 -
+2025-11-27 15:14:08,796 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:08] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-27 15:14:08,801 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:08] "GET /login HTTP/1.1" 200 -
+2025-11-27 15:14:08,818 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-27 15:14:16,451 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:16] "POST /login HTTP/1.1" 200 -
+2025-11-27 15:14:16,471 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:16] "GET / HTTP/1.1" 200 -
+2025-11-27 15:14:16,491 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-27 15:14:16,501 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:16] "GET /schedules HTTP/1.1" 200 -
+2025-11-27 15:14:16,502 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:16] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:14:18,296 - INFO - Added job "schedule_job.<locals>.<lambda>" to job store "default"
+2025-11-27 15:14:18,296 - INFO - Tarea programada para las 18:00 (ID: luis.hoyoss_schedule_0_1800)
+2025-11-27 15:14:18,297 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:18] "POST /schedule HTTP/1.1" 200 -
+2025-11-27 15:14:18,304 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:18] "GET /schedules HTTP/1.1" 200 -
+2025-11-27 15:14:19,240 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:19] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-27 15:14:19,244 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:19] "GET /login HTTP/1.1" 200 -
+2025-11-27 15:14:19,264 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-27 15:14:25,396 - INFO - Removed job luis.hoyos_schedule_0_1800
+2025-11-27 15:14:25,397 - INFO - Added job "schedule_job.<locals>.<lambda>" to job store "default"
+2025-11-27 15:14:25,397 - INFO - Tarea programada para las 18:00 (ID: luis.hoyos_schedule_0_1800)
+2025-11-27 15:14:25,398 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:25] "POST /login HTTP/1.1" 200 -
+2025-11-27 15:14:25,414 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:25] "GET / HTTP/1.1" 200 -
+2025-11-27 15:14:25,434 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-27 15:14:25,451 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:25] "GET /schedules HTTP/1.1" 200 -
+2025-11-27 15:14:25,452 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:25] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:14:35,451 - INFO - 172.18.0.1 - - [27/Nov/2025 15:14:35] "GET /logs HTTP/1.1" 200 -
