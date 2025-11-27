@@ -1692,3 +1692,91 @@ Stacktrace:
 2025-11-27 15:19:18,550 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:18] "GET /login HTTP/1.1" 200 -
 2025-11-27 15:19:28,755 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:28] "[32mGET /logs HTTP/1.1[0m" 302 -
 2025-11-27 15:19:28,759 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:28] "GET /login HTTP/1.1" 200 -
+2025-11-27 15:19:38,756 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:38] "[32mGET /logs HTTP/1.1[0m" 302 -
+2025-11-27 15:19:38,761 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:38] "GET /login HTTP/1.1" 200 -
+2025-11-27 15:19:48,756 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:48] "[32mGET /logs HTTP/1.1[0m" 302 -
+2025-11-27 15:19:48,762 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:48] "GET /login HTTP/1.1" 200 -
+2025-11-27 15:19:50,771 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:50] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-27 15:19:50,776 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:50] "GET /login HTTP/1.1" 200 -
+2025-11-27 15:19:50,799 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-27 15:19:51,392 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:51] "GET /login HTTP/1.1" 200 -
+2025-11-27 15:19:51,406 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-27 15:19:51,565 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:51] "GET /login HTTP/1.1" 200 -
+2025-11-27 15:19:51,581 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-27 15:19:51,733 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:51] "GET /login HTTP/1.1" 200 -
+2025-11-27 15:19:51,750 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-27 15:19:51,888 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:51] "GET /login HTTP/1.1" 200 -
+2025-11-27 15:19:51,905 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-27 15:19:52,053 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:52] "GET /login HTTP/1.1" 200 -
+2025-11-27 15:19:52,070 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-27 15:19:56,308 - INFO - Base de datos inicializada correctamente.
+2025-11-27 15:19:56,309 - INFO - Scheduler started
+2025-11-27 15:19:56,310 - INFO - Restaurando trabajos programados desde la base de datos...
+2025-11-27 15:19:56,311 - INFO - Added job "schedule_job.<locals>.<lambda>" to job store "default"
+2025-11-27 15:19:56,311 - INFO - Tarea programada para las 18:00 (ID: luis.hoyos_schedule_0_1800)
+2025-11-27 15:19:56,311 - INFO - Added job "schedule_job.<locals>.<lambda>" to job store "default"
+2025-11-27 15:19:56,312 - INFO - Tarea programada para las 18:00 (ID: luis.hoyoss_schedule_0_1800)
+2025-11-27 15:19:56,312 - INFO - ✅ Se han restaurado 2 trabajos programados.
+2025-11-27 15:19:56,315 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.2:5000
+2025-11-27 15:19:56,316 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-27 15:19:58,524 - INFO - Removed job luis.hoyos_schedule_0_1800
+2025-11-27 15:19:58,525 - INFO - Added job "schedule_job.<locals>.<lambda>" to job store "default"
+2025-11-27 15:19:58,525 - INFO - Tarea programada para las 18:00 (ID: luis.hoyos_schedule_0_1800)
+2025-11-27 15:19:58,533 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:58] "POST /login HTTP/1.1" 200 -
+2025-11-27 15:19:58,557 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:58] "GET / HTTP/1.1" 200 -
+2025-11-27 15:19:58,576 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-27 15:19:58,589 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:58] "GET /schedules HTTP/1.1" 200 -
+2025-11-27 15:19:58,590 - INFO - 172.18.0.1 - - [27/Nov/2025 15:19:58] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:20:01,056 - INFO - Removed job luis.hoyos_schedule_0_1800
+2025-11-27 15:20:01,057 - INFO - 172.18.0.1 - - [27/Nov/2025 15:20:01] "DELETE /schedule/luis.hoyos_schedule_0_1800 HTTP/1.1" 200 -
+2025-11-27 15:20:01,064 - INFO - 172.18.0.1 - - [27/Nov/2025 15:20:01] "GET /schedules HTTP/1.1" 200 -
+2025-11-27 15:20:08,674 - INFO - 172.18.0.1 - - [27/Nov/2025 15:20:08] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:20:16,635 - INFO - Added job "run_now.<locals>.<lambda>" to job store "default"
+2025-11-27 15:20:16,636 - INFO - 172.18.0.1 - - [27/Nov/2025 15:20:16] "POST /run-now HTTP/1.1" 200 -
+2025-11-27 15:20:16,637 - INFO - Running job "run_now.<locals>.<lambda> (trigger: date[2025-11-27 15:20:16 CET], next run at: 2025-11-27 15:20:16 CET)" (scheduled at 2025-11-27 15:20:16.635610+01:00)
+2025-11-27 15:20:16,637 - INFO - Removed job 09c89dce145d44d798a7d29d13cf10bb
+2025-11-27 15:20:16,637 - INFO - ⏰ Ejecutando tarea programada para usuario: luis.hoyos...
+2025-11-27 15:20:16,639 - INFO - Configurando navegador...
+2025-11-27 15:20:16,640 - INFO - ====== WebDriver manager ======
+2025-11-27 15:20:16,713 - INFO - Get LATEST chromedriver version for google-chrome
+2025-11-27 15:20:16,798 - INFO - Get LATEST chromedriver version for google-chrome
+2025-11-27 15:20:16,848 - INFO - There is no [linux64] chromedriver "142.0.7444.175" for browser google-chrome "142.0.7444" in cache
+2025-11-27 15:20:16,848 - INFO - Get LATEST chromedriver version for google-chrome
+2025-11-27 15:20:18,736 - INFO - 172.18.0.1 - - [27/Nov/2025 15:20:18] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:20:18,740 - INFO - 172.18.0.1 - - [27/Nov/2025 15:20:18] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:20:22,201 - INFO - WebDriver version 142.0.7444.175 selected
+2025-11-27 15:20:22,204 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/142.0.7444.175/linux64/chromedriver-linux64.zip
+2025-11-27 15:20:22,204 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/142.0.7444.175/linux64/chromedriver-linux64.zip
+2025-11-27 15:20:22,328 - INFO - Driver downloading response is 200
+2025-11-27 15:20:22,524 - INFO - Get LATEST chromedriver version for google-chrome
+2025-11-27 15:20:22,682 - INFO - Driver has been saved in cache [/root/.wdm/drivers/chromedriver/linux64/142.0.7444.175]
+2025-11-27 15:20:22,856 - INFO - Navegador iniciado correctamente.
+2025-11-27 15:20:23,590 - INFO - Verificando necesidad de login...
+2025-11-27 15:20:23,590 - INFO - Intento 1/3 - Login automático para usuario: luis.hoyos...
+2025-11-27 15:20:25,310 - INFO - Credenciales enviadas. Esperando redirección...
+2025-11-27 15:20:28,952 - INFO - 172.18.0.1 - - [27/Nov/2025 15:20:28] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:20:30,316 - INFO - ✅ Login completado exitosamente
+2025-11-27 15:20:30,317 - INFO - Buscando botón de detener tiempo...
+2025-11-27 15:20:39,024 - INFO - 172.18.0.1 - - [27/Nov/2025 15:20:39] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:20:40,514 - INFO - ⚠️ No se encontró el botón 'Detener'. Verificando si ya está detenido...
+2025-11-27 15:20:40,521 - INFO - ✅ El cronómetro YA estaba detenido (se encontró botón Iniciar).
+2025-11-27 15:20:40,582 - INFO - Resultado de la tarea: True - Tarea completada con éxito
+2025-11-27 15:20:40,583 - INFO - Job "run_now.<locals>.<lambda> (trigger: date[2025-11-27 15:20:16 CET], next run at: 2025-11-27 15:20:16 CET)" executed successfully
+2025-11-27 15:20:49,035 - INFO - 172.18.0.1 - - [27/Nov/2025 15:20:49] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:20:59,061 - INFO - 172.18.0.1 - - [27/Nov/2025 15:20:59] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:21:09,202 - INFO - 172.18.0.1 - - [27/Nov/2025 15:21:09] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:21:19,202 - INFO - 172.18.0.1 - - [27/Nov/2025 15:21:19] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:21:29,331 - INFO - 172.18.0.1 - - [27/Nov/2025 15:21:29] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:21:39,539 - INFO - 172.18.0.1 - - [27/Nov/2025 15:21:39] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:21:49,748 - INFO - 172.18.0.1 - - [27/Nov/2025 15:21:49] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:21:59,958 - INFO - 172.18.0.1 - - [27/Nov/2025 15:21:59] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:22:10,168 - INFO - 172.18.0.1 - - [27/Nov/2025 15:22:10] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:22:20,376 - INFO - 172.18.0.1 - - [27/Nov/2025 15:22:20] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:22:30,587 - INFO - 172.18.0.1 - - [27/Nov/2025 15:22:30] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:22:40,797 - INFO - 172.18.0.1 - - [27/Nov/2025 15:22:40] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:22:50,798 - INFO - 172.18.0.1 - - [27/Nov/2025 15:22:50] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:23:00,814 - INFO - 172.18.0.1 - - [27/Nov/2025 15:23:00] "GET /logs HTTP/1.1" 200 -
+2025-11-27 15:23:10,816 - INFO - 172.18.0.1 - - [27/Nov/2025 15:23:10] "GET /logs HTTP/1.1" 200 -
