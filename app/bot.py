@@ -30,17 +30,10 @@ class KronosBot:
         self.password = os.getenv("KRONOS_PASSWORD")
         
         # --- CONFIGURACIÓN DE SELECTORES ---
-        # IMPORTANTE: Debes actualizar estos selectores con los valores reales de la página.
-        # Usa Inspeccionar Elemento en tu navegador para encontrarlos.
         self.selectors = {
-            # Selectores de Login (si se va a automatizar el login)
-            "login_user_input": (By.ID, "username"),  # Ejemplo: cambiar "username" por el ID real
-            "login_pass_input": (By.ID, "password"),  # Ejemplo: cambiar "password" por el ID real
+            "login_user_input": (By.ID, "username"), 
+            "login_pass_input": (By.ID, "password"),
             "login_submit_btn": (By.XPATH, "//button[@type='submit']"),
-            
-            # Selector del botón de APAGAR/DETENER
-            # Busca un botón que contenga texto como "Detener", "Salida", "Stop", etc.
-            # Ejemplo XPATH: "//button[contains(text(), 'Detener')]"
             "stop_button": (By.XPATH, "//button[contains(@class, 'btn-stop') or contains(text(), 'Detener')]") 
         }
 
@@ -50,12 +43,13 @@ class KronosBot:
         """Configura e inicia el navegador Chrome."""
         logging.info("Configurando navegador...")
         chrome_options = Options()
-        # chrome_options.add_argument("--headless") # Descomentar para ejecutar sin ventana visible
-        chrome_options.add_argument("--start-maximized")
-        chrome_options.add_argument("--disable-infobars")
         
-        # Mantiene el navegador abierto si el script termina (opcional, útil para depurar)
-        chrome_options.add_experimental_option("detach", True)
+        # En Docker es OBLIGATORIO usar headless y no-sandbox
+        chrome_options.add_argument("--headless") 
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_options.add_argument("--window-size=1920,1080")
+        chrome_options.add_argument("--disable-infobars")
 
         service = Service(ChromeDriverManager().install())
         self.driver = webdriver.Chrome(service=service, options=chrome_options)
@@ -65,69 +59,51 @@ class KronosBot:
         """Maneja el inicio de sesión."""
         logging.info("Verificando necesidad de login...")
         
-        # Si tenemos credenciales en el .env, intentamos usarlas
         if self.username and self.password:
             try:
-                logging.info("Intentando login automático con credenciales proporcionadas...")
-                
-                # Esperar a que aparezca el campo de usuario
-                user_field = WebDriverWait(self.driver, 10).until(
+                logging.info("Intentando login automático...")
+                WebDriverWait(self.driver, 10).until(
                     EC.presence_of_element_located(self.selectors["login_user_input"])
-                )
-                pass_field = self.driver.find_element(*self.selectors["login_pass_input"])
-                submit_btn = self.driver.find_element(*self.selectors["login_submit_btn"])
-
-                user_field.clear()
-                user_field.send_keys(self.username)
-                pass_field.clear()
-                pass_field.send_keys(self.password)
-                submit_btn.click()
+                ).send_keys(self.username)
+                
+                self.driver.find_element(*self.selectors["login_pass_input"]).send_keys(self.password)
+                self.driver.find_element(*self.selectors["login_submit_btn"]).click()
                 
                 logging.info("Credenciales enviadas.")
             except Exception as e:
-                logging.warning(f"No se pudo realizar el login automático (quizás ya estás logueado o los selectores están mal): {e}")
+                logging.warning(f"Login automático falló o no fue necesario: {e}")
         else:
-            logging.info("No se detectaron credenciales en .env. Esperando login manual...")
+            logging.info("No hay credenciales. En modo Headless (Docker) esto fallará si la sesión no es persistente.")
 
     def stop_timer(self):
         """Espera y hace clic en el botón de detener tiempo."""
         try:
             logging.info("Buscando botón de detener tiempo...")
-            
-            # Esperamos hasta 60 segundos para que el usuario se loguee manualmente (si es necesario)
-            # y la página cargue el botón.
-            button = WebDriverWait(self.driver, 60).until(
+            button = WebDriverWait(self.driver, 30).until(
                 EC.element_to_be_clickable(self.selectors["stop_button"])
             )
-            
-            # Opcional: Verificar texto del botón antes de clicar para asegurar
             logging.info(f"Botón encontrado: {button.text}")
-            
             button.click()
             logging.info("✅ ¡ÉXITO! Se ha hecho clic en el botón de detener.")
-            
-            # Esperar un poco para asegurar que la acción se procese
             time.sleep(5)
-            
         except Exception as e:
-            logging.error(f"❌ ERROR: No se pudo encontrar o hacer clic en el botón. Detalles: {e}")
-            logging.info("Sugerencia: Revisa los selectores en la configuración del script.")
+            logging.error(f"❌ ERROR: No se pudo encontrar el botón: {e}")
+            # Guardar captura de pantalla para debug en Docker
+            self.driver.save_screenshot("error_screenshot.png")
+            raise e
 
     def run(self):
         """Ejecuta el flujo completo."""
         try:
             self.setup_driver()
             self.driver.get(self.url)
-            
             self.login()
-            
             self.stop_timer()
-            
+            return True, "Tarea completada con éxito"
         except Exception as e:
-            logging.error(f"Error crítico en la ejecución: {e}")
+            return False, str(e)
         finally:
             if self.driver:
-                logging.info("Cerrando navegador...")
                 self.driver.quit()
 
 if __name__ == "__main__":

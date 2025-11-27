@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  kronos-bot:
+    build: .
+    container_name: kronos_automator
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    volumes:
+      - ./bot.log:/app/bot.log  # Persistir logs
+      - ./schedule.json:/app/schedule.json # Persistir horario
+    # Opcional: Si tienes problemas con memoria compartida en Chrome
+    shm_size: '2gb' 

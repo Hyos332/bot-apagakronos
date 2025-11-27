@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kronos Automator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⏳ Kronos Automator</h1>
+            <p>Control de Automatización de Tiempo</p>
+        </header>
+
+        <main>
+            <div class="card schedule-card">
+                <h2>Programación Automática</h2>
+                <div class="input-group">
+                    <label for="timeInput">Hora de Salida:</label>
+                    <input type="time" id="timeInput" value="{{ schedule if schedule else '18:00' }}">
+                </div>
+                <button id="saveBtn" class="btn btn-primary">Guardar Horario</button>
+                <p id="statusMsg" class="status-msg"></p>
+            </div>
+
+            <div class="card actions-card">
+                <h2>Acciones Manuales</h2>
+                <p>¿Sales temprano hoy?</p>
+                <button id="runNowBtn" class="btn btn-danger">🛑 DETENER AHORA</button>
+            </div>
+
+            <div class="card logs-card">
+                <h2>Registro de Actividad</h2>
+                <div class="log-console" id="logConsole">
+                    Cargando logs...
+                </div>
+                <button id="refreshLogs" class="btn btn-secondary">Actualizar Logs</button>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('saveBtn').addEventListener('click', async () => {
+            const time = document.getElementById('timeInput').value;
+            const res = await fetch('/schedule', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({time})
+            });
+            const data = await res.json();
+            const msg = document.getElementById('statusMsg');
+            msg.textContent = data.message;
+            msg.style.color = '#4ade80';
+            setTimeout(() => msg.textContent = '', 3000);
+        });
+
+        document.getElementById('runNowBtn').addEventListener('click', async () => {
+            if(!confirm("¿Seguro que quieres ejecutar el bot ahora?")) return;
+            const res = await fetch('/run-now', {method: 'POST'});
+            const data = await res.json();
+            alert(data.message);
+            loadLogs();
+        });
+
+        async function loadLogs() {
+            const res = await fetch('/logs');
+            const text = await res.text();
+            const consoleDiv = document.getElementById('logConsole');
+            consoleDiv.textContent = text;
+            consoleDiv.scrollTop = consoleDiv.scrollHeight;
+        }
+
+        document.getElementById('refreshLogs').addEventListener('click', loadLogs);
+        
+        // Auto-load logs
+        loadLogs();
+        setInterval(loadLogs, 10000);
+    </script>
+</body>
+</html>
