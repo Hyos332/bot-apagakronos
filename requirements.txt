@@ -3,3 +3,4 @@ webdriver-manager
 python-dotenv
 flask
 apscheduler
+pytz

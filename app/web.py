@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from apscheduler.schedulers.background import BackgroundScheduler
+from apscheduler.triggers.cron import CronTrigger
+from pytz import timezone
 import logging
 import json
 import os
@@ -15,7 +17,10 @@ logger = logging.getLogger(__name__)
 # Archivo para persistencia
 SCHEDULE_FILE = "schedule.json"
 
-scheduler = BackgroundScheduler()
+# Zona horaria de España
+TIMEZONE = timezone('Europe/Madrid')
+
+scheduler = BackgroundScheduler(timezone=TIMEZONE)
 scheduler.start()
 atexit.register(lambda: scheduler.shutdown())
 

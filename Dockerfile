@@ -4,6 +4,7 @@ FROM python:3.9-slim
 # Evitar archivos .pyc y buffering
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
+ENV TZ=Europe/Madrid
 
 # Instalar dependencias del sistema necesarias para Chrome y Selenium
 RUN apt-get update && apt-get install -y \
@@ -11,6 +12,9 @@ RUN apt-get update && apt-get install -y \
     gnupg \
     unzip \
     curl \
+    tzdata \
+    && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
+    && echo $TZ > /etc/timezone \
     && rm -rf /var/lib/apt/lists/*
 
 # Instalar Google Chrome
